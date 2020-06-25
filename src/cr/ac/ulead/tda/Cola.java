@@ -1,6 +1,7 @@
 package cr.ac.ulead.tda;
 
 import cr.ac.ulead.models.Mascota;
+import cr.ac.ulead.ui.UIUtils;
 
 public class Cola {
     Mascota[] mascotas;
@@ -31,30 +32,41 @@ public class Cola {
     }
 
     public void enQueue(Mascota newMascota) {
-        if (isFull()) {
-            System.out.println("Queue is full");
-        } else {
-            if (head == -1)
-                head = 0;
-            tail = (tail + 1) % this.tamanio;
-            mascotas[tail] = newMascota;
+        UIUtils ui = new UIUtils();
+        try{
+            if (isFull()) {
+                System.out.println("Queue is full");
+            } else {
+                if (head == -1)
+                    head = 0;
+                tail = (tail + 1) % this.tamanio;
+                mascotas[tail] = newMascota;
+            }
+        }catch (Exception e){
+            ui.print("Problema al meter datos a la cola "+ e) ;
         }
     }
 
     public Mascota deQueue() throws Exception {
-        Mascota mascota;
-        if (isEmpty()) {
-            throw new Exception("La cola esta vacia");
-        } else {
-            mascota = mascotas[head];
-            if (head == tail) {
-                head = -1;
-                tail = -1;
-            }
-            else {
-                head = (head + 1) % this.tamanio;
+        UIUtils ui = new UIUtils();
+        try {
+            Mascota mascota;
+            if (isEmpty()) {
+                throw new Exception("La cola esta vacia");
+            } else {
+                mascota = mascotas[head];
+                if (head == tail) {
+                    head = -1;
+                    tail = -1;
+                }
+                else {
+                    head = (head + 1) % this.tamanio;
+                }
             }
             return mascota;
+        }catch (Exception e){
+            ui.print("Problema al eliminar datos de la cola "+ e);
         }
+        return null;
     }
 }

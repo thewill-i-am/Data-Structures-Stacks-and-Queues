@@ -3,10 +3,10 @@ import cr.ac.ulead.logica.Logic;
 import cr.ac.ulead.ui.UIUtils;
 
 public class MainD {
-   public static void main(String[] args) throws Exception {
+   public static void main(String[] args) {
        ejecutar();
    }
-    private static void ejecutar() throws Exception {
+    private static void ejecutar()  {
         Logic logic = new Logic();
         int option = 4;
         do {
