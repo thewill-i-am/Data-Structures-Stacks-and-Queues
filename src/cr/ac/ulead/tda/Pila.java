@@ -34,6 +34,6 @@ public class Pila {
     }
 
     public float menorEstatura () throws Exception {
-        return alturas.remove();
+        return alturas.peek();
     }
 }
