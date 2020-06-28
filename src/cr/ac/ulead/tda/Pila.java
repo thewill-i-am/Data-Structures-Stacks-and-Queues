@@ -34,6 +34,11 @@ public class Pila {
     }
 
     public float menorEstatura () throws Exception {
-        return alturas.remove();
+        try{
+            return alturas.peek();
+        }catch (Exception e){
+            throw new Exception ("No hay datos en la pila ");
+        }
+
     }
 }

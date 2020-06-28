@@ -30,9 +30,9 @@ public class ColaSerializadorUlead {
             return false;
     }
 
-    public void enQueue(SerializadorUlead newSerializadorUlead) {
+    public void enQueue(SerializadorUlead newSerializadorUlead) throws Exception  {
         if (isFull()) {
-            System.out.println("Queue is full");
+            throw new Exception("La cola esta llena \n");
         } else {
             if (head == -1)
                 head = 0;
@@ -44,7 +44,7 @@ public class ColaSerializadorUlead {
     public SerializadorUlead deQueue() throws Exception {
         SerializadorUlead serializableLeadRemoved;
         if (isEmpty()) {
-            throw new Exception("La cola esta vacia");
+            throw new Exception("La cola esta vacia \n");
         } else {
             serializableLeadRemoved = this.serializadorUlead[head];
             if (head == tail) {

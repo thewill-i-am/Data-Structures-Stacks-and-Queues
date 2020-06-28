@@ -33,9 +33,9 @@ public class Cola {
 
     public void enQueue(Mascota newMascota) {
         UIUtils ui = new UIUtils();
-        try{
+        try {
             if (isFull()) {
-                System.out.println("Queue is full");
+                throw new Exception("La cola esta llena");
             } else {
                 if (head == -1)
                     head = 0;
@@ -43,7 +43,7 @@ public class Cola {
                 mascotas[tail] = newMascota;
             }
         }catch (Exception e){
-            ui.print("Problema al meter datos a la cola "+ e) ;
+            ui.print(e.getMessage());
         }
     }
 
@@ -65,7 +65,7 @@ public class Cola {
             }
             return mascota;
         }catch (Exception e){
-            ui.print("Problema al eliminar datos de la cola "+ e);
+            ui.print(e.getMessage());
         }
         return null;
     }
