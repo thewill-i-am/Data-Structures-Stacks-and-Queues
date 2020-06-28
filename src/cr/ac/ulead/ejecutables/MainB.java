@@ -9,7 +9,7 @@ public class MainB {
         Logic logic = new Logic();
         int option = 2;
         while (true){
-              logic.execute(option);
+            logic.execute(option);
         }
     }
 }
