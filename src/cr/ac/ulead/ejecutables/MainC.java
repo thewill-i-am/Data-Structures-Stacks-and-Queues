@@ -8,9 +8,9 @@ public class MainC {
     private static void ejecutar()  {
         Logic logic = new Logic();
         int option = 3;
-        do {
+        while (true){
             logic.execute(option);
-        } while (option != 6);
+        }
     }
 }
 
